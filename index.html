@@ -1,14 +1,23 @@
 <html>
 <head>
 <script type="text/javascript" src="Vector3.js"></script>
-<script type="text/javascript" src="peanut_game_draw.js"></script></head>
+<script type="text/javascript" src="P_frame.js"></script>
+<script type="text/javascript" src="P_Transform.js"></script>
+<script type="text/javascript" src="P_Material.js"></script>
+<script type="text/javascript" src="P_MeshRender.js"></script>
+</head>
 <body>
 <p id="test">
 </p>
 <script type="text/javascript">
-P_All_Material.load();
-P_draw.canvas();
-P_draw.draw("pic1");
+	a = new P_Transform;
+	a.setPosition(100,200,300);
+	aMats = new P_Material;
+	aMats.add("a");
+	aMats.load();
+	ren = new P_MeshRender("pic0");
+	setTimeout("ren.rend(a.x,a.y,100,100)",3000);
+
 </script>
 </body>
 </html>
