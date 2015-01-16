@@ -1,6 +1,7 @@
 P_Material = function(){this.material = []; this.count=0;}
 
 P_Material.prototype = {
+	// 源地址列表
 	add: function(mat_arr){for(var i in mat_arr){this.material[this.count]=mat_arr[i];this.count++;}},
 	load : function(){
 		var div = document.getElementById("all_material");

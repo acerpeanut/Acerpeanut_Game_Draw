@@ -5,15 +5,16 @@ P_MeshRender = function(mat){
 	this.height = 100;
 	this.spriteX = 0;
 	this.spriteY = 0;
+	this.canvas = null;
+	this.ctx = null;
 }
 
 P_MeshRender.prototype = {
 	rend: function(x,y,w,h){
-		var ctx = this.ctx();
 		var img = document.getElementById(this.material);
-		ctx.drawImage(img, x,y);
+		this.ctx.drawImage(img, x,y,w,h);
 	},
-	ctx: function(){
+	addCanvas: function(){
 		var can = document.getElementById("P_myCanvas");
 		if(!can){
 			can = document.createElement("canvas");
@@ -22,7 +23,11 @@ P_MeshRender.prototype = {
 			can.style.width = 500;
 			document.body.appendChild(can);
 		}
-		return can.getContext('2d');
+		this.canvas = can;
+		this.ctx = this.canvas.getContext('2d');
+	},
+	setWH: function(w,h){
+		this.canvas.style.height = h; this.canvas.style.width = w; 
 	}
 }
 

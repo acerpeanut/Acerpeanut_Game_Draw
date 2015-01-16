@@ -11,12 +11,13 @@
 </p>
 <script type="text/javascript">
 	a = new P_Transform;
-	a.setPosition(100,200,300);
+	a.setPosition(0,0,300);
 	aMats = new P_Material;
-	aMats.add("a");
+	aMats.add(["pic/a.png"]);
 	aMats.load();
 	ren = new P_MeshRender("pic0");
-	setTimeout("ren.rend(a.x,a.y,100,100)",3000);
+	ren.addCanvas();
+	setTimeout("ren.rend(a.position.x,a.position.y,100,100)",3000);
 
 </script>
 </body>
